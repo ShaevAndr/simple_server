@@ -1,0 +1,46 @@
+<div class="wrapper">
+	{# Первая выборка (постановка новой задачии) #}
+	<div id="task_settings_1">
+
+	{% include "interface/controls/data-field.twig" with {
+           placeholder: "Введите время ожидания в минутах",
+        	id: "task_date",
+        	additional_data: '',
+        	placeholder: "Со сроком выполнения: в момент события"
+        } %}
+
+	{% include "interface/controls/select.twig" with {
+           	id: "task_responsible_1",
+			title: "Выбор пользователя / отдела",
+			items: managers
+        } %}
+	
+	{% include "interface/controls/select.twig" with {
+            id: "task_type_1",
+			title: "type_of_task",
+			items: tasks
+        	placeholder: "Со сроком выполнения: в момент события"
+        } %}
+	
+	{% include "interface/controls/textarea.twig" with {
+            id: "task_text_1",
+        	placeholder: "Введите текст задачи"
+        } %}
+	
+	</div>
+	
+	{# Вторая выборка (тег) #}
+	<div id="tag_settings_1">
+	
+	</div>
+
+	{# Третья выборка (смена ответственного) #}
+	<div id="change_responsible_1">
+	
+	</div>
+
+	{# четвёртая выборка (отправка уведомления в инстаграм) #}
+	<div id="notice_1">
+	
+	</div>
+</div>
