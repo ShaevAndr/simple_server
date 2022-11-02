@@ -2,95 +2,103 @@
 <div class="conditions"> </div>
 
 <div id="choice_manager">
-{% include "select.twig" with {
-           	name:"choice_manager",
-			items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1}, 
-			    {option:'Тег', name:"tag", id:2, value:2, data_value: 2}, 
-			    {option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3}, 
-			    {option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4}],
-			id: "",
-			title: "Выбор пользователя / отдела",
-			additional_data: '',
-			} %}
+	<h2>Выбор пользователя/отдела</h2>
+	{% include "select.twig" with {
+		name:"choice_manager",
+		items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1}, 
+			{option:'Тег', name:"tag", id:2, value:2, data_value: 2}, 
+			{option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3}, 
+			{option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4}],
+		id: "",
+		title: "Выбор пользователя / отдела",
+		additional_data: '',
+	} %}
 </div>
+
 <div>
-{% include "input.twig" with {
-           	placeholder: "Введите время ожидания в минутах",
-			id: "delay_time"
-			} %}
+	<h2>Установите время ожидания</h2>
+	{% include "input.twig" with {
+		placeholder: "Введите время ожидания в минутах",
+		id: "delay_time"
+	} %}
 </div>
 			
 <div id="actions_1">
-		
-{% include "checkboxes_dropdown.twig" with {
-            name: "actions_choice",
-			items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1}, 
-			    {option:'Тег', name:"tag", id:2, value:2, data_value: 2}, 
-			    {option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3}, 
-			    {option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4}],
-			    id:""
-        } %}
+	<h2>Что изволите сделать с медлительным?</h2>
+	{% include "checkboxes_dropdown.twig" with {
+		name: "actions_choice",
+		items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1}, 
+			{option:'Тег', name:"tag", id:2, value:2, data_value: 2}, 
+			{option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3}, 
+			{option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4}],
+			id:""
+	} %}
 
 </div>			
 
-	{# Первая выборка (постановка новой задачии) #}
-	<div id="task_settings_1" style="display: none;">
-	<p>	Условие 1 </p>
-	{% include "date_field.twig" with {
-           	id: "task_date",
-        	additional_data: '',
-        	placeholder: "Со сроком выполнения: в момент события"
-        } %}
-
-	{% include "select.twig" with {
-           	id: "task_responsible_1",
+{# Первая выборка (постановка новой задачии) #}
+<div id="task_settings_1"  style="display: none;" class="align_center">
+	<div class="inner_wrapper">
+		<h2>	Поставить задачу </h2>
+		{% include "date_field.twig" with {
+			id: "task_date",
+			additional_data: '',
+			placeholder: "Со сроком выполнения: в момент события"
+		} %}
+		{% include "select.twig" with {
+			id: "task_responsible_1",
 			title: "Выбор пользователя / отдела",
-			items: [{id:1, option:"dsfsd"}, {id:2, option:"dsfsdsdd"}]
-			} %}
-	
-	{% include "select.twig" with {
-            id: "task_type_1",
+			items: [{id:1, option:"dsfsd", bg_color:"white"}, {id:2, option:"dsfsdsdd", bg_color:"white"}]
+		} %}
+		{% include "select.twig" with {
+			id: "task_type_1",
 			title: "type_of_task",
-			items: [{id:1, option:"выберети что-нибудь", disabled:true}, {id:1, option:"dsfsd"}]
-        } %}
-	
-	{% include "textarea.twig" with {
-            id: "task_text_1",
-        	placeholder: "Введите текст задачи"
-        } %}
-	
+			items: [{id:1, option:"выберети что-нибудь", disabled:true, bg_color:"white"}, {id:1, option:"dsfsd", bg_color:"white"}]
+		} %}
+		{% include "textarea.twig" with {
+			id: "task_text_1",
+			placeholder: "Введите текст задачи"
+		} %}
 	</div>
-	
-	{# Вторая выборка (тег) #}
-	<div id="tag_settings_1" style="display: none;">
-	<p>	Условие 2 </p>
+</div>
+
+{# Вторая выборка (тег) #}
+<div id="tag_settings_1" style="display: none;" class="align_center">
+	<div class="inner_wrapper">
+		<h2>	Присвоить тэг: </h2>
 		{% include "checkboxes_dropdown.twig" with {
-            id: "tags_1",
+			id: "tags_1",
 			title: "tags",
-			items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1}, 
-			    {option:'Тег', name:"tag", id:2, value:2, data_value: 2}, 
-			    {option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3}, 
-			    {option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4}],
+			items: [{option:'Задача', name:"task", id:1, value:1, data_value: 1, bg_color:"white"}, 
+				{option:'Тег', name:"tag", id:2, value:2, data_value: 2, bg_color:"white"}, 
+				{option:'Смена ответственного', name:"responsible", id:3, value:3, data_value: 3, bg_color:"white"}, 
+				{option:'Уведомление в Telegram', name:"notice", id:4, value:4, data_value: 4, bg_color:"white"}],
 				class_name: "my-15"
-        } %}
+		} %}
 	</div>
+</div>
 
-	{# Третья выборка (смена ответственного) #}
-	<div id="change_responsible_1" style="display: none;">
-	<p>	Условие 3 </p>
-	{% include "select.twig" with {
-           	id: "change_task_responsible_1",
+{# Третья выборка (смена ответственного) #}
+<div id="change_responsible_1" style="display: none;" class="align_center">
+	<div class="inner_wrapper">
+		<h2>	Сменить ответственного на: </h2>
+		{% include "select.twig" with {
+			id: "change_task_responsible_1",
 			title: "Выбор пользователя / отдела",
-			items: [{id:1, option:"dsfsd"}, {id:1, option:"dsdfvsderdffsd"}]
-			} %}
+			items: [{id:1, option:"dsfsd", bg_color:"white"}, {id:1, option:"dsdfvsderdffsd", bg_color:"white"}]
+		} %}
 	</div>
+</div>
 
-	{# четвёртая выборка (отправка уведомления в инстаграм) #}
-	<div id="notice_1" style="display: none;">
-	<p>	Условие 4 </p>
-	{% include "textarea.twig" with {
-            id: "task_text_1",
-        	placeholder: "Введите сообщение в телеграмм"
-        } %}
+{# четвёртая выборка (отправка уведомления в инстаграм) #}
+<div id="notice_1" style="display: none;" class="align_center">
+	<div class="inner_wrapper">
+		<h2>	Отправить сообщение в Telegram: </h2>
+		{% include "textarea.twig" with {
+			id: "message_1",
+			placeholder: "Введите сообщение в телеграмм"
+		} %}
 	</div>
+</div>
+
 </div>
