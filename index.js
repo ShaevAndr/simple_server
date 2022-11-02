@@ -27,6 +27,16 @@ app.get("/", (req, res) =>{
         },
     });
 })
+app.post('/getamo', (req, res) => {
+    AMO = req.body
+    res.sendStatus(200)
+})
 
+app.get("/lookatthis", (req, res) => {
+    console.log("look")
+    res.send(AMO)
+}) 
 
-app.listen(2000, () => console.log("app is starting")); 
+ 
+
+app.listen(2000, () => console.log("app is starting"));   
