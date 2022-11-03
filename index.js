@@ -25,8 +25,24 @@ app.get("/", (req, res) =>{
             id: "delay_1",
             placeholder: "Кол-во мин. без ответа клиенту"
         },
+        items_check:[{id:'1', name:'pic', title:'picT'}, {id:'2', name:'piv', title:'pivT'}, {id:'1', name:'pid', title:'pidT'}, ]
+    });
+})
+app.post('/post', (req, res) => {
+    const managers = req.body
+    console.log(req.body)
+    res.render('control_settings.twig', {
+        select_manager: managers,
     });
 })
 
+app.get("/lookatthis", (req, res) => {
+    console.log("look")
+    res.send(AMO)
+}) 
 
-app.listen(2000, () => console.log("app is starting")); 
+
+
+ 
+   
+app.listen(2000, () => console.log("app is starting"));       
