@@ -1,5 +1,4 @@
 
-
 <div class="table_wrapper" >
 	<table style="width:100%;">
 <div>
@@ -25,13 +24,6 @@
         tasks: tasks,
 	}%}
 	{% for line in message_control %}
-		
-		{% set actions_array = []%}
-		{% for action in line.action_type %}
-			{% if action.is_checked %}
-				{% set actions_array = actions_array|merge([action.value]) %}
-			{% endif %}
-		{% endfor %}
 	{# Режим отображения информации #}
 			<tr align="left" id="view_row_{{line.id}}">
 				<td>
@@ -41,37 +33,24 @@
 				<td>
 					{{line.delay_time}}
 				</td>
-				
-				
-				<td>
-				{% for action in line.action_type %}
-					{% if action.is_checked %}
-						{% include 'action_tag.twig' with {
-							action: action,
-							id: line.id
-						} %}
-					{% endif %}
-				{% endfor %}
-				</td>
-				
-				<td>		
-					<div class="changes flex-column align-start jc-start" 
-						id="task_info_{{line.id}}"
-						{% if actions_array[0] != "task" %} style="display:none;" {% endif %}>
-							<span class="head_title">Поставить задачу на дату: </span>
-							<span>{{line.task.date}}</span>
-							<span class="head_title">Поставить задачу для: </span>
-							<span>{{line.task.responsible.option}}</span>
-							<span class="head_title">Тип задачи: </span>
-							<span>{{line.task.type.option}}</span>
-							<span class="head_title">Текст задачи: </span>
-							<span>{{line.task.text}}</span>
-					</div>
-						
-					<div class="changes flex-column align-start jc-start" 
-						id="tag_info_{{line.id}}"
-						{% if actions_array[0] != "tag" %} style="display:none;" {% endif %}>
-							<span class="head_title">Присвоены тэги:</span>
+
+				{% if line.task %}	
+					<td>Поставлена задача</td>
+					<td>
+						<div class="changes flex-column align-start jc-start">
+							<span>Поставить задачу на дату: {{line.task.date}}</span>
+							<span>Поставить задачу для: {{line.task.responsible.option}}</span>
+							<span>Тип задачи: {{line.task.type.option}}</span>
+							<span>Текст задачи: {{line.task.text}}</span>
+						</div>
+					</td>
+				{% endif %}
+
+				{% if line.tags %}	
+					<td>Установленны тэги</td>
+					
+					<td>
+						<div class="changes flex-column align-start jc-start">
 							{% for tag in line.tags %}
 								{% if tag.is_checked %}
 								{% include 'tag.twig' with {
@@ -80,23 +59,30 @@
 								} %}
 								{% endif %}
 							{% endfor %}						
-					</div>
-						
-					<div class="changes flex-column align-start jc-start" 
-						id="responsible_info_{{line.id}}"
-						{% if actions_array[0] != "responsible" %} style="display:none;" {% endif %}>
-						<span class="head_title">Сменить ответственного на:</span>
-						<span>{{line.new_responsible.option}}</span>
-					</div>
+						</div>
+					</td>
+				{% endif %}
 
-					<div class="changes flex-column align-start jc-start" 
-						id="notice_info_{{line.id}}"
-						{% if actions_array[0] != "notice" %} style="display:none;" {% endif %}>
-						<span class="head_title">Сообщение:</span>
-						<span>{{line.notice}}</span>
-					</div>
-				</td>
+				{% if line.new_responsible %}	
+					<td>Смена ответственного</td>
+					<td>
+						<div class="changes flex-column align-start jc-start">
+							<span>Сменить ответственного на:</span>
+							<span>{{line.new_responsible.option}}</span>
+						</div>
+					</td>
+				{% endif %}
 
+				{% if line.notice %}	
+					<td>Отправить сообщение в телеграмм</td>
+					<td>
+						<div class="changes flex-column align-start jc-start">
+							<span>Сообщение:</span>
+							<span>{{line.notice}}</span>
+						</div>
+					</td>
+				{% endif %}
+				
 				<td>
 					<div class="flex-column align-center jc-center">
 						<span data-action="change" class="edit" data-id={{line.id}}>изменить</span>
@@ -135,9 +121,15 @@
 
 				<td>
 					<div id="actions_{{line.id}}" data-id="{{line.id}}" class="w-100">
-						{% include "checkboxes_dropdown.twig" with {
+						{% include "select.twig" with {
+							selected: line.action_type,
 							name: "actions_choice",
-							items: line.action_type
+							items: [{option:'Задача',  id:"task", value:"task"}, 
+								{option:'Тег', id:"tag", value:"tag"}, 
+								{option:'Смена ответственного', id:"responsible", value:"responsible"}, 
+								{option:'Уведомление в Telegram', id:"notice" , value:"notice"}],
+								id:"_actions_" ~ line.id ,
+								class_name: "w-100"
 						} %}
 
 					</div>			
@@ -145,8 +137,7 @@
 
 				<td>
 						{# Первая выборка (постановка новой задачии) #}
-							<div id="task_settings_{{line.id}}"  class="align_center" {% if "task" not in actions_array %} style="display:none;" {% endif %}>
-								<span class="head_title">Поставить задачу</span>
+							<div id="task_settings_{{line.id}}"  class="align_center" {% if line.action_type != "task" %} style="display:none;" {% endif %}>
 								{% include "date_field.twig" with {
 									value: line.task.date,
 									class_name: 'w-100',
@@ -178,38 +169,37 @@
 						
 
 						{# Вторая выборка (тег) #}
-							<div id="tag_settings_{{line.id}}"  class="align_center" {% if "tag" not in actions_array %} style="display:none;" {% endif %}>
-								<span class="head_title">Добавить тэг</span>
-								{% include "checkboxes_dropdown/tag_drop_checkbox.twig" with {
-									id: "add_tags_" ~ line.id,
-									title: "Добавить тэг",
-									items: tags,
-									class_name: 'w-100'
-								} %}
+							<div id="tag_settings_{{line.id}}"  class="align_center" {% if line.action_type != "tag" %} style="display:none;" {% endif %}>
+									{% include "checkboxes_dropdown/tag_drop_checkbox.twig" with {
+										id: "add_tags_" ~ line.id,
+										title: "Добавить тэг",
+										items: tags,
+										class_name: 'w-100'
+
+
+									} %}
 							</div>
 
 						{# Третья выборка (смена ответственного) #}
-							<div id="change_responsible_{{line.id}}" class="align_center" {% if "responsible" not in actions_array %} style="display:none;" {% endif %}>
-								<span class="head_title">Сменить ответственного</span>
-								{% include "select.twig" with {
-									class_name: 'w-100',
-									id: "change_task_responsible_" ~ line.id,
-									title: "Выбор пользователя / отдела",
-									items: select_manager,
-									selected: line.new_responsible.id
-								} %}
+							<div id="change_responsible_{{line.id}}" class="align_center" {% if line.action_type != "responsible" %} style="display:none;" {% endif %}>
+									{% include "select.twig" with {
+										class_name: 'w-100',
+										id: "change_task_responsible_" ~ line.id,
+										title: "Выбор пользователя / отдела",
+										items: select_manager,
+										selected: line.new_responsible.id
+									} %}
 							</div>
 
 
 						{# четвёртая выборка (отправка уведомления в телеграм) #}
-							<div id="notice_{{line.id}}" class="align_center" {% if "notice" not in actions_array %} style="display:none;" {% endif %}>
-								<span class="head_title">Отправить сообщение в телеграм</span>
-								{% include "textarea.twig" with {
-									class_name: 'w-100',
-									id: "message_" ~ line.id,
-									placeholder: "Введите сообщение в телеграмм",
-									value: line.notice
-								} %}
+							<div id="notice_{{line.id}}" class="align_center" {% if line.action_type != "notice" %} style="display:none;" {% endif %}>
+									{% include "textarea.twig" with {
+										class_name: 'w-100',
+										id: "message_" ~ line.id,
+										placeholder: "Введите сообщение в телеграмм",
+										value: line.notice
+									} %}
 								
 							</div>
 						</td>
@@ -265,19 +255,6 @@ th {
 
 }
 
-.title{
-	margin-top: 30px;
-	padding: 10px;
-	font-family: 'PT Sans Caption','Arial Black',sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 19px;
-	color: rgb(182,189,201);
-}
-
 .flex-column {
 	display: flex;
 	flex-direction: column;
@@ -307,18 +284,16 @@ p {
 }
 
 .tag_wrapper {
-	height: 24px;
     display: flex;
     align-items: center;
     color: #fff;
     border: 1px solid #38525d;
     position: relative;
     border-radius: 3px;
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .custom_tag{
-	height:100%;
     background: rgba(56,82,93,.5);
     padding: 0 7px;
 }
@@ -362,8 +337,6 @@ p {
     line-height: 19px;
 	color: rgb(182,189,201);
 }
-
-
   </style>
 
 </div>

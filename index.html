@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H2 id="test">TEST</H2>
+    <script>
+        const el = document.getElementById("test")
+        const es = new EventSource("http://localhost:2000/notification")
+        es.onmessage = (event, message)=>{el.innerText = JSON.stringify(message)}
+
+    </script>
+</body>
+</html>

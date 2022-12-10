@@ -1,6 +1,10 @@
-const obj = {abs:{df:"sdf"}, abc:{dfe:"sdf"}, abd:{dfer:"sdf"}, }
+const Api = require("./api")
 
-obj.map(el=>{console.log(el)})
-// for (const i in obj) {
-//     console.log(obj[i])
-// }
+const get_data = async (sub, talk_id) => {
+	const api = new Api(sub)
+	const data = await api.getTalk(talk_id).then(data=>data).catch(err=>console.log(err.response.data))
+	{console.log(data)}
+}
+
+
+	get_data("mysupertestaccount", "100")

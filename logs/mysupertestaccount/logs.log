@@ -1,0 +1,153 @@
+2022-12-05T23:22:17.855 DEBUG C:\work\simpleserver\index.js:88 Got request for widget installation
+
+2022-12-05T23:22:17.865 ERROR node:fs:599 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (node:fs:599:3)
+    at Object.readFileSync (node:fs:467:35)
+    at Api.getAccessToken (C:\work\simpleserver\api.js:68:26)
+    at C:\work\simpleserver\index.js:90:19
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\work\simpleserver\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\work\simpleserver\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at C:\work\simpleserver\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\work\simpleserver\node_modules\express\lib\router\index.js:346:12) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-05T23:22:17.881 DEBUG C:\work\simpleserver\api.js:75 Попытка заново получить токен
+
+2022-12-05T23:22:18.307 ERROR C:\work\simpleserver\api.js:58 {
+  hint: 'Redirect URI is not associated with client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-05T23:22:18.313 DEBUG C:\work\simpleserver\index.js:92 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-05T23:22:18.391 DEBUG C:\work\simpleserver\index.js:118 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-05T23:25:08.920 ERROR node:fs:599 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (node:fs:599:3)
+    at Object.readFileSync (node:fs:467:35)
+    at Api.getAccessToken (C:\work\simpleserver\api.js:68:26)
+    at Api.getTalk (C:\work\simpleserver\api.js:25:21)
+    at C:\work\simpleserver\index.js:63:28
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\work\simpleserver\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\work\simpleserver\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at C:\work\simpleserver\node_modules\express\lib\router\index.js:284:15 {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-05T23:25:08.943 DEBUG C:\work\simpleserver\api.js:75 Попытка заново получить токен
+
+2022-12-05T23:25:09.532 ERROR C:\work\simpleserver\api.js:58 {
+  hint: 'Cannot decrypt the authorization code',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-05T23:26:34.638 ERROR node:fs:599 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (node:fs:599:3)
+    at Object.readFileSync (node:fs:467:35)
+    at Api.getAccessToken (C:\work\simpleserver\api.js:68:26)
+    at C:\work\simpleserver\index.js:90:19
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\work\simpleserver\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\work\simpleserver\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at C:\work\simpleserver\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\work\simpleserver\node_modules\express\lib\router\index.js:346:12) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-05T23:26:34.624 DEBUG C:\work\simpleserver\index.js:88 Got request for widget installation
+
+2022-12-05T23:26:34.652 DEBUG C:\work\simpleserver\api.js:75 Попытка заново получить токен
+
+2022-12-05T23:26:35.175 ERROR C:\work\simpleserver\api.js:58 {
+  hint: 'Redirect URI is not associated with client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-05T23:26:35.182 DEBUG C:\work\simpleserver\index.js:92 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-05T23:26:35.268 DEBUG C:\work\simpleserver\index.js:118 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-05T23:43:03.848 DEBUG C:\work\simpleserver\index.js:88 Got request for widget installation
+
+2022-12-05T23:43:03.869 ERROR node:fs:599 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (node:fs:599:3)
+    at Object.readFileSync (node:fs:467:35)
+    at Api.getAccessToken (C:\work\simpleserver\api.js:68:26)
+    at C:\work\simpleserver\index.js:90:19
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\work\simpleserver\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\work\simpleserver\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at C:\work\simpleserver\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\work\simpleserver\node_modules\express\lib\router\index.js:346:12) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-05T23:43:03.889 DEBUG C:\work\simpleserver\api.js:75 Попытка заново получить токен
+
+2022-12-05T23:43:04.495 ERROR C:\work\simpleserver\api.js:58 {
+  hint: 'Redirect URI is not associated with client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-05T23:43:04.503 DEBUG C:\work\simpleserver\index.js:92 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-05T23:43:04.621 DEBUG C:\work\simpleserver\index.js:118 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-05T23:48:25.807 DEBUG C:\work\simpleserver\index.js:88 Got request for widget installation
+
+2022-12-05T23:48:25.822 ERROR node:fs:599 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (node:fs:599:3)
+    at Object.readFileSync (node:fs:467:35)
+    at Api.getAccessToken (C:\work\simpleserver\api.js:68:26)
+    at C:\work\simpleserver\index.js:90:19
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\work\simpleserver\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\work\simpleserver\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\work\simpleserver\node_modules\express\lib\router\layer.js:95:5)
+    at C:\work\simpleserver\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\work\simpleserver\node_modules\express\lib\router\index.js:346:12) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-05T23:48:25.836 DEBUG C:\work\simpleserver\api.js:75 Попытка заново получить токен
+
+2022-12-05T23:48:26.566 DEBUG C:\work\simpleserver\api.js:54 Свежий токен получен
+
+2022-12-05T23:48:26.573 DEBUG C:\work\simpleserver\index.js:91 Авторизация при установке виджета для mysupertestaccount прошла успешно
+
+2022-12-05T23:48:26.690 DEBUG C:\work\simpleserver\index.js:118 Данные о пользователе были обновлены в базе данных виджета
+

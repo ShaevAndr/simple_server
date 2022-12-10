@@ -1,0 +1,122 @@
+
+<tr align="left" id="edit_settings_row">
+    <td>
+        <div id="choice_manager_{{selected_setting.id}}" class="w-100">
+            {% include "select.twig" with {
+                selected: selected_setting.manager.id,                
+                name:"choice_manager",
+                items: select_manager,
+                id: current_manager, 
+                title: "Выбор пользователя / отдела",
+                additional_data: '',
+                class_name: "w-100"
+            } %}
+        </div>
+    </td>
+
+    <td>
+        <div class="w-100">
+            {% include "input.twig" with {
+                placeholder: "Введите время ожидания",
+                id: "delay_time_" ~ selected_setting.id,
+                class_name: "w-100",
+                value: selected_setting.delay_time
+            } %}
+        </div>
+    </td>
+
+    <td>
+        <div id="actions_{{selected_setting.id}}" class="w-100">
+           {% include "checkboxes_dropdown.twig" with {
+                name: "actions_choice",
+                items: selected_setting.action_type
+                    id:"_actions",
+                    class_name: "w-100"
+            } %}
+
+        </div>			
+    </td>
+
+    <td>
+            {# Первая выборка (постановка новой задачии) #}
+            {% if selected_setting.action_type == "task" %}
+            <div id="task_settings_{{selected_setting.id}}"  class="align_center">
+                
+
+                    {% include "date_field.twig" with {
+                        value: selected_setting.task.date,
+                        class_name: 'w-100',
+                        id: "task_date_" ~ selected_setting.id,
+                        additional_data: '',
+                        placeholder: "Со сроком выполнения: в момент события"
+                    } %}
+                    {% include "select.twig" with {
+                        class_name: 'w-100',
+                        id: "task_responsible_" ~ selected_setting.id,
+                        title: "Выбор пользователя / отдела",
+                        items: select_manager,
+                        selected: selected_setting.task.responsible.id,
+                    } %}
+                    {% include "task_select.twig" with {
+                        class_name: 'w-100',
+                        id: "task_type_" ~ selected_setting.id,
+                        title: "Типа задачи",
+                        items: tasks,
+                        selected: selected_setting.task.id,
+                    } %}
+                    {% include "textarea.twig" with {
+                        class_name: 'w-100',
+                        id: "task_text_" ~ selected_setting.id,
+                        placeholder: "Введите текст задачи",
+                        value: selected_setting.task.text
+                    } %}
+                </div>
+            {% endif %}
+
+            {# Вторая выборка (тег) #}
+            {% if selected_setting.action_type == "tag" %}
+            <div id="tag_settings"  class="align_center">
+                    {% include "checkboxes_dropdown/tag_drop_checkbox.twig" with {
+                        id: "add_tags",
+                        title: "Добавить тэг",
+                        items: selected_setting.tags,
+                        class_name: 'w-100'
+
+
+                    } %}
+            </div>
+            {% endif %}
+
+            {# Третья выборка (смена ответственного) #}
+            {% if selected_setting.action_type == "responsible" %}
+            <div id="change_responsible" class="align_center">
+                    {% include "select.twig" with {
+                        class_name: 'w-100',
+                        id: "change_task_responsible",
+                        title: "Выбор пользователя / отдела",
+                        items: select_manager,
+                        selected: selected_setting.new_responsible.id
+
+                    } %}
+            </div>
+            {% endif %}
+
+            {# четвёртая выборка (отправка уведомления в телеграм) #}
+            {% if selected_setting.action_type == "notice" %}
+            <div id="notice" class="align_center">
+                    {% include "textarea.twig" with {
+                        class_name: 'w-100',
+                        id: "message",
+                        placeholder: "Введите сообщение в телеграмм",
+                        value: selected_setting.notice
+                    } %}
+                
+            </div>
+            {% endif %}
+    </td>
+
+    <td>
+        <button  type="button" class="button-input button-input_blue button-input_add button-input_add-todo content-table__name-link" tabindex=""><span class="button-input-inner__text" data-id="{{selected_setting.id}}" data-action="cancel">Отменить</span></button>
+        <button data-id="{{selected_setting.id}}" type="button" class="button-input button-input_blue button-input_add button-input_add-todo content-table__name-link" tabindex=""><span class="button-input-inner__text" data-id="{{selected_setting.id}}" data-action="save">Сохранить</span></button>
+    </td>
+</tr>

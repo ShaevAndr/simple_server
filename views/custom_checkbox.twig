@@ -11,12 +11,14 @@
     <span class="control-checkbox__helper {% if checked_minus %}control-checkbox__helper_minus{% endif %}"></span>
   </div>
 
-  {% if text|length %}
+  {% if text %}
     <div class="control-checkbox__text element__text {{text_class_name}}" title="{{text}}">
       {% if note_text %}
         <span class="control-checkbox__main-text">{{text}}</span> <span class="control-checkbox__note-text">{{note_text}}</span>
       {% else %}
-        {{text}}
+        <div class="tag_wrapper" data-id="{{text.id}}">
+            <span class='custom_tag' title={{text.name}} style="background:{{text.color}}";>{{text.name}}</span>
+        </div>
       {% endif %}
     </div>
   {% elseif note_text %}

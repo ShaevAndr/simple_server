@@ -1,0 +1,192 @@
+{% set actions_array = []%}
+	{% for action in selected_condition.action_type %}
+		{% if action.is_checked == true %}
+			{% set actions_array = actions_array|merge([action.value]) %}
+		{% endif %}
+	{% endfor %}
+
+<tr align="left" id="view_row_{{selected_condition._id}}">
+				<td>
+					{{selected_condition.manager.option}}
+				</td>
+					
+				<td>
+					{{selected_condition.delay_time}}
+				</td>
+				
+				
+				<td>
+				{% for action in selected_condition.action_type %}
+					{% if action.is_checked %}
+						{% include 'action_tag.twig' with {
+							action: action,
+							id: selected_condition._id
+						} %}
+					{% endif %}
+				{% endfor %}
+				</td>
+				
+				<td>		
+					<div class="changes flex-column align-start jc-start" 
+						id="task_info_{{selected_condition._id}}"
+						{% if actions_array[0] != "task" %} style="display:none;" {% endif %}>
+							<span class="head_title">Поставить задачу на дату: </span>
+							<span>{{selected_condition.task.date}}</span>
+							<span class="head_title">Поставить задачу для: </span>
+							<span>{{selected_condition.task.responsible.option}}</span>
+							<span class="head_title">Тип задачи: </span>
+							<span>{{selected_condition.task.type.option}}</span>
+							<span class="head_title">Текст задачи: </span>
+							<span>{{selected_condition.task.text}}</span>
+					</div>
+						
+					<div class="changes flex-column align-start jc-start" 
+						id="tag_info_{{selected_condition._id}}"
+						{% if actions_array[0] != "tag" %} style="display:none;" {% endif %}>
+							<span class="head_title">Присвоены тэги:</span>
+							{% for tag in selected_condition.tags %}
+								{% if tag.is_checked %}
+								{% include 'tag.twig' with {
+									id: tag.id,
+									name: tag.name
+								} %}
+								{% endif %}
+							{% endfor %}						
+					</div>
+						
+					<div class="changes flex-column align-start jc-start" 
+						id="responsible_info_{{selected_condition._id}}"
+						{% if actions_array[0] != "responsible" %} style="display:none;" {% endif %}>
+						<span class="head_title">Сменить ответственного на:</span>
+						<span>{{selected_condition.new_responsible.option}}</span>
+					</div>
+
+					<div class="changes flex-column align-start jc-start" 
+						id="notice_info_{{selected_condition._id}}"
+						{% if actions_array[0] != "notice" %} style="display:none;" {% endif %}>
+						<span class="head_title">Сообщение:</span>
+						<span>{{selected_condition.notice}}</span>
+					</div>
+				</td>
+
+				<td>
+					<div class="flex-column align-center jc-center">
+						<span data-action="change" class="edit" data-id={{selected_condition._id}}>изменить</span>
+						<span data-action="delete" class="delete" data-id={{selected_condition._id}}>удалить</span>
+					</div>
+				</td>	
+			</tr>
+
+
+			{# Блок редактирования #}
+			<tr id="edit_row_{{selected_condition._id}}" align="left" style="display:none;">
+				<td>
+					<div id="choice_manager_{{selected_condition._id}}" class="w-100">
+						{% include "select.twig" with {
+							selected: selected_condition.manager.id,                
+							name:"choice_manager",
+							items: select_managers,
+							id: "current_manager_" ~ selected_condition._id, 
+							title: "Выбор пользователя / отдела",
+							additional_data: '',
+							class_name: "w-100"
+						} %}
+					</div>
+				</td>
+
+				<td>
+					<div class="w-100">
+						{% include "input.twig" with {
+							placeholder: "Введите время ожидания",
+							id: "delay_time_" ~ selected_condition._id,
+							class_name: "w-100",
+							value: selected_condition.delay_time
+						} %}
+					</div>
+				</td>
+
+				<td>
+					<div id="actions_{{selected_condition._id}}" data-id="{{selected_condition._id}}" class="w-100">
+						{% include "checkboxes_dropdown.twig" with {
+							name: "actions_choice",
+							items: selected_condition.action_type
+						} %}
+
+					</div>			
+				</td>
+
+				<td>
+						{# Первая выборка (постановка новой задачии) #}
+							<div id="task_settings_{{selected_condition._id}}"  class="align_center" {% if "task" not in actions_array %} style="display:none;" {% endif %}>
+								{% include "date_field.twig" with {
+									value: selected_condition.task.date,
+									class_name: 'w-100',
+									id: "task_date_" ~ selected_condition._id,
+									additional_data: '',
+									placeholder: "Со сроком выполнения: в момент события"
+								} %}
+								{% include "select.twig" with {
+									class_name: 'w-100',
+									id: "task_responsible_" ~ selected_condition._id,
+									title: "Выбор пользователя / отдела",
+									items: select_managers,
+									selected: selected_condition.task.responsible.id,
+								} %}
+								{% include "task_select.twig" with {
+									class_name: 'w-100',
+									id: "task_type_" ~ selected_condition._id,
+									title: "Типа задачи",
+									items: tasks,
+									selected: selected_condition.task.id,
+								} %}
+								{% include "textarea.twig" with {
+									class_name: 'w-100',
+									id: "task_text_" ~ selected_condition._id,
+									placeholder: "Введите текст задачи",
+									value: selected_condition.task.text
+								} %}
+							</div>
+							
+						{# Вторая выборка (тег) #}
+							<div id="tag_settings_{{selected_condition._id}}"  class="align_center" {% if "tag" not in actions_array %} style="display:none;" {% endif %}>
+									{% include "checkboxes_dropdown/tag_drop_checkbox.twig" with {
+										id: "add_tags_" ~ selected_condition._id,
+										title: "Добавить тэг",
+										items: tags,
+										class_name: 'w-100'
+
+
+									} %}
+							</div>
+
+						{# Третья выборка (смена ответственного) #}
+							<div id="change_responsible_{{selected_condition._id}}" class="align_center" {% if "responsible" not in actions_array %} style="display:none;" {% endif %}>
+									{% include "select.twig" with {
+										class_name: 'w-100',
+										id: "change_task_responsible_" ~ selected_condition._id,
+										title: "Выбор пользователя / отдела",
+										items: select_manager,
+										selected: selected_condition.new_responsible.id
+									} %}
+							</div>
+
+
+						{# четвёртая выборка (отправка уведомления в телеграм) #}
+							<div id="notice_{{selected_condition._id}}" class="align_center" {% if "notice" not in actions_array %} style="display:none;" {% endif %}>
+									{% include "textarea.twig" with {
+										class_name: 'w-100',
+										id: "message_" ~ selected_condition._id,
+										placeholder: "Введите сообщение в телеграмм",
+										value: selected_condition.notice
+									} %}
+								
+							</div>
+						</td>
+
+						<td align="center">
+							<div class="flex-column align-center jc-start">
+								<button data-id="{{selected_condition._id}}" data-action="save" type="button" class=" button-input button-input_blue button-input_add save_changes_button w-100"  tabindex=""><span class="button-input-inner__text w-100" data-id="{{selected_condition._id}}" data-action="save">Сохранить</span></button>
+								<button data-id="{{selected_condition._id}}" data-action="cancel" type="button" class="button-input button-cancel button-input_red button-input_add cancel_button w-100" tabindex=""><span class="button-input-inner__text w-100" data-id="{{selected_condition._id}}" data-action="cancel">Отменить</span></button>
+							</div>
+						</td>			
+				</tr>

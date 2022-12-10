@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "nodemonConfig": {
+    "ext": "js",
+    "ignore": [
+      "./authclients/",
+      "./logs/"
+    ],
+    "delay": "2"
+  },
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
+    "axios-retry": "^3.3.1",
+    "cors": "^2.8.5",
+    "events": "^3.3.0",
     "express": "^4.18.2",
+    "log4js": "^6.7.0",
+    "mongodb": "^4.12.0",
     "twig": "^1.15.4"
   }
 }

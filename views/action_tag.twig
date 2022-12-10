@@ -1,0 +1,12 @@
+{% if action.value == "task" %}
+    {% set target = "task_info_" ~ id %}
+{% elseif action.value == "tag" %}
+    {% set target = "tag_info_" ~ id %}
+{% elseif action.value == "notice" %}
+    {% set target = "notice_info_" ~ id %}
+{% else %}
+    {% set target = "responsible_info_" ~ id %}
+{% endif %}
+<div class="tag_wrapper" data-id="{{id}}" style="margin-bottom: 15px;">
+    <span data-type="action_tag" data-target="{{target}}" class='custom_tag' title={{action.value}} style="background:{{action.color}}";>{{action.option}}</span>
+</div>

@@ -1,0 +1,110 @@
+
+
+<tr align="left" id="add_settings_row" style="display:none;">
+    <td>
+        <div id="choice_manager" class="w-100">
+            {% include "select.twig" with {
+                name:"choice_manager",
+                items: select_manager,
+                id: "current_manager",
+                title: "Выбор пользователя / отдела",
+                additional_data: '',
+                class_name: "w-100"
+            } %}
+        </div>
+    </td>
+
+    <td>
+        <div class="w-100">
+            {% include "input.twig" with {
+                placeholder: "Введите время ожидания",
+                id: "delay_time",
+                class_name: "w-100"
+            } %}
+        </div>
+    </td>
+
+    <td>
+        <div id="actions" class="w-100">
+            {% include "checkboxes_dropdown.twig" with {
+                name: "actions_choice",
+                items: [{option:'Задача',  id:"task", value:"task", is_checked:true}, 
+                    {option:'Тег', id:"tag", value:"tag"}, 
+                    {option:'Смена ответственного', id:"responsible", value:"responsible"}, 
+                    {option:'Уведомление в Telegram', id:"notice", value:"notice"}],
+                    id:"_actions",
+                    class_name: "w-100"
+            } %}
+
+        </div>			
+    </td>
+
+    <td>
+            {# Первая выборка (постановка новой задачии) #}
+            <div id="task_settings"  class="align_center">
+                
+                <span class="title">Добавить задачу</span>
+                    {% include "date_field.twig" with {
+                        class_name: 'w-100',
+                        id: "task_date",
+                        additional_data: '',
+                        placeholder: "Со сроком выполнения: в момент события"
+                    } %}
+                    {% include "select.twig" with {
+                        class_name: 'w-100',
+                        id: "task_responsible",
+                        title: "Выбор пользователя / отдела",
+                        items: select_manager
+                    } %}
+                    {% include "task_select.twig" with {
+                        class_name: 'w-100',
+                        id: "task_type",
+                        title: "Типа задачи",
+                        items: tasks
+                    } %}
+                    {% include "textarea.twig" with {
+                        class_name: 'w-100',
+                        id: "task_text",
+                        placeholder: "Введите текст задачи"
+                    } %}
+                </div>
+
+            {# Вторая выборка (тег) #}
+            <div id="tag_settings" style="display: none;" class="align_center">
+            <span class="title">Добавить тэг</span>
+                    {% include "checkboxes_dropdown/tag_drop_checkbox.twig" with {
+                        id: "add_tags",
+                        title: "Добавить тэг",
+                        items: tags,
+                        class_name: 'w-100'
+                    } %}
+            </div>
+
+            {# Третья выборка (смена ответственного) #}
+            <div id="change_responsible" style="display: none;" class="align_center">
+                <span class="title">Сменить ответственного</span>
+                    {% include "select.twig" with {
+                        class_name: 'w-100',
+                        id: "change_task_responsible",
+                        title: "Выбор пользователя / отдела",
+                        items: select_manager
+
+                    } %}
+            </div>
+
+            {# четвёртая выборка (отправка уведомления в телеграм) #}
+            <div id="notice" style="display: none;" class="align_center">
+                <span class="title">Отправить сообщение</span>
+                    {% include "textarea.twig" with {
+                        class_name: 'w-100',
+                        id: "message",
+                        placeholder: "Введите сообщение в телеграмм"
+                    } %}
+                
+            </div>
+    </td>
+
+    <td>
+        <button type="button" class="button-input button-input_blue button-input_add button-input_add-todo content-table__name-link" tabindex="" id="save_control_setting"><span class="button-input-inner__text">Сохранить</span></button>
+    </td>
+</tr>
