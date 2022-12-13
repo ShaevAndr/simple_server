@@ -14,9 +14,38 @@ app.use(express.json());
 app.use(cors({ origin: "*"}));
 app.use(express.urlencoded({ extended: true }));
 data_processing.init()
-pushEmit.emit("notice", {data:"data"})
 
+class Notice {
+    constructor (res, data){
+        console.log("new emiter")
+        this.emitter = new EventEmitter()
+        this.res = res;
+        this.subdomain = data.subdomain
+        this.user = data.id
+        this.res.setHeader('Content-Type', 'text/event-stream');
+        this.res.setHeader('Cache-Control', 'no-cache');
+        this.res.setHeader('Connection', 'keep-alive');
+        this.res.setHeader("Content-Encoding", "identity");
+        this.res.setHeader("Access-Control-Allow-Origin", "*");
+        this.res.setHeader("Access-Control-Allow-Methods", "*");
+        setInterval(()=>{this.res.write('data: {"ping": "pong"} \n\n')}, 10000)
+        this.emitter.on("message", ()=>{this.res.write("data:from server \n\n")})
+    }
 
+    send_to_client () {
+        this.emitter.emit("message")
+    }
+
+    
+}
+
+app.get("/test", (req, res)=>{
+    res.json({dataa:"yjhv"})
+})
+app.post("/informer", (req, res)=>{
+    console.log(req.body)
+    res.sendStatus(200)
+})
 // удаляет действие
 app.delete('/data_change', (req, res) => {
     const {subdomain, changes} = req.body
@@ -179,11 +208,8 @@ app.get("/notification", (req, res)=>{
     const data = req.query
     console.log(data)
     console.log("sse")
-    res.setHeader('Content-Type', 'text/event-stream');
-	res.setHeader('Connection', 'keep-alive');
-    res.write('data: {"ping": "pong"}\n\n')
-    pushEmit.on('massage', (message)=>{res.write({data:message})
-        res.write("\n\n")})
+    const emiter = new Notice(res, data)
+    data_processing.add_client(emiter)
 
 })
    

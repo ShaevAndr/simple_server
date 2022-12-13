@@ -1,0 +1,14 @@
+[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; disabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sat 2022-12-10 18:27:32 UTC; 1h 5min ago
+       Docs: man:nginx(8)
+   Main PID: 784 (nginx)
+      Tasks: 3 (limit: 1028)
+     Memory: 4.3M
+        CPU: 76ms
+     CGroup: /system.slice/nginx.service
+             ├─ 784 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─1931 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             └─1932 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Warning: some journal files were not opened due to insufficient permissions.

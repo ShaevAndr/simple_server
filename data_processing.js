@@ -9,6 +9,7 @@ const pushEmiter = new EventEmitter()
 
 let first_mesasage = null
 let timer = null
+let users = {}
 
 //  Инициализация. Получаем сообзщение с самым ранним временем действия и запускаем таймер на реализацию.
 const init = async () => {
@@ -116,7 +117,12 @@ const realize_actions = async (message) =>{
         }).catch(err=>{console.log(err.response.data)})
     }
     if (message.actions.notice){
-return
+        console.log("send message in telegram")
+        if (users[message.actions.manager.id]){
+            console.log("ect` takoi user")
+            
+            users[message.actions.manager.id].send_to_client()
+        }
     }
     await DB.delete_message({"_id":message._id})
     init()
@@ -136,8 +142,13 @@ const delete_talk = (talk_id) =>{
 
 }
 
+const add_client = (emiter) => {
+    users[emiter.user] = emiter
+}
+
 module.exports = {
     message_processing,
     init, 
-    delete_talk
+    delete_talk,
+    add_client
 }
