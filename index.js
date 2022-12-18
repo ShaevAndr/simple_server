@@ -28,20 +28,20 @@ class Notice {
         this.res.setHeader("Content-Encoding", "identity");
         this.res.setHeader("Access-Control-Allow-Origin", "*");
         this.res.setHeader("Access-Control-Allow-Methods", "*");
-        setInterval(()=>{this.res.write('data: {"ping": "pong"} \n\n')}, 10000)
-        this.emitter.on("message", ()=>{this.res.write("data:from server \n\n")})
+        setInterval(()=>{this.res.write('data: {"ping": "pong"} \n\n')}, 30000)
+        this.emitter.on("notification", ()=>{
+            console.log('внутри эмиттер он')
+            this.res.write("event: notification\n")
+            this.res.write("data:from server \n\n")})
     }
 
     send_to_client () {
-        this.emitter.emit("message")
+        this.emitter.emit("notification")
     }
 
     
 }
 
-app.get("/test", (req, res)=>{
-    res.json({dataa:"yjhv"})
-})
 app.post("/informer", (req, res)=>{
     console.log(req.body)
     res.sendStatus(200)
@@ -68,7 +68,9 @@ app.patch('/data_change', (req, res) => {
 
 // Добавлеят новое дейтвие в бд и возвращает новое действие
 app.post('/data_change', async (req, res) => {
+
     const {subdomain, changes} = req.body
+    console.log(changes)
     DB.add_action(subdomain, changes)
     .then(data => DB.get_action_by_id(subdomain, data.insertedId))
     .then(data=>{
@@ -196,13 +198,6 @@ app.get('/delete', async (req, res) => {
     res.status(200);
 });
 
-app.post("/seccess", async (req, res)=>{
-    const subDomain = req.body.subdomain
-    const api = new Api(subDomain)
-    api.getContact(2794642)
-    .then(data=>{console.log(data)})
-    return res.status(200)
-})
 
 app.get("/notification", (req, res)=>{
     const data = req.query

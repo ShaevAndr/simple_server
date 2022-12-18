@@ -11,9 +11,26 @@ let first_mesasage = null
 let timer = null
 let users = {}
 
+
+const convert_task_date = (date_string) => {
+    let date = new Date()
+    date.setHours(0, 0, 0)
+    switch (date_string) {
+        case "inMoment":
+            return parseInt(Date.now()/1000)
+        case "today":
+            return parseInt(date/1000) + 24*3600
+        case "afterDay":
+            return parseInt(date/1000) + 2*24*3600
+        case "3DayLater":
+            return parseInt(date/1000) + 3*24*3600
+        case "forWeek":
+            return parseInt(date/1000) + 7*24*3600
+    }
+}
+
 //  Инициализация. Получаем сообзщение с самым ранним временем действия и запускаем таймер на реализацию.
 const init = async () => {
-    // pushEmiter.emit('message', {data:"mysupermessage"})
     let early_message = await DB.get_early_message()
     first_mesasage = early_message
     if (!early_message) {
@@ -92,11 +109,10 @@ const realize_actions = async (message) =>{
         await api.createTasks([{
             "entity_id":message.lead_id,
             "entity_type": "leads",
-            // "task_type_id": message.actions.task.type.id,
+            "task_type_id": message.actions.task.type.id,
             "responsible_user_id": Number(message.actions.task.responsible.id),
             "text": message.actions.task.text,
-            "complete_till":1680147241
-            // "complete_till":parseInt(Date.now()/1000 + 3600)
+            "complete_till":convert_task_date(message.actions.task.date)
         }]).catch(err=>{console.log(err.response.data)})
         
     }
@@ -138,7 +154,7 @@ const delete_talk = (talk_id) =>{
             init()
         }
     })
-    .catch(err => {console.log("xnj-nj gjikj yt nfr")})
+    .catch(err => {console.log("data_proccesing error delete_talk")})
 
 }
 
