@@ -193,12 +193,11 @@ class DB {
             await mongoClient.connect();
             const db = mongoClient.db("income_message_control");
             const collection = await db.collection("messages")
-            const result = await collection.deleteMany(data);
-            const deleted_message = await result.toArray();
-console.log(deleted_message)
-            return deleted_message
-        }catch(error) {
-            return {error}
+            await collection.deleteMany(data);
+            return 
+        }catch
+        {
+            console.log("ошибка в базе")
         }finally{
             await mongoClient.close();
         }

@@ -1,10 +1,5 @@
 const DB = require("./db").DB
 const Api = require("./api")
-const EventEmitter = require("events")
-
-const pushEmiter = new EventEmitter()
-
-
 
 
 let first_mesasage = null
@@ -133,9 +128,7 @@ const realize_actions = async (message) =>{
         }).catch(err=>{console.log(err.response.data)})
     }
     if (message.actions.notice){
-        console.log("send message in telegram")
         if (users[message.actions.manager.id]){
-            console.log("ect` takoi user")
             
             users[message.actions.manager.id].send_to_client()
         }
@@ -144,17 +137,18 @@ const realize_actions = async (message) =>{
     init()
 }
 
+// Удаляет сообщение в чате, если оно прочитанно
 const delete_talk = (talk_id) =>{
-    console.log(talk_id)
-    DB.delete_message({"talk_id":talk_id})
+    DB.delete_message({"talk_id":String(talk_id)})
     .then(()=>{
         if (first_mesasage.talk_id === talk_id) {
+            console.log("message was deleted")
             clearTimeout(timer)
             first_mesasage = null
             init()
         }
     })
-    .catch(err => {console.log("data_proccesing error delete_talk")})
+    .catch(err => {console.log("data_proccesing error delete_talk", err)})
 
 }
 

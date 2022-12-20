@@ -1,0 +1,185 @@
+2022-12-19T15:46:49.103 DEBUG /home/spinoza/server/simple_server/index.js:125 Got request for widget installation
+
+2022-12-19T15:46:49.107 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:127:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T15:46:49.107 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T15:46:50.704 DEBUG /home/spinoza/server/simple_server/index.js:129 Ошибка авторизации при установке виджета  undefined undefined
+
+2022-12-19T15:46:50.736 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:134:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T15:46:50.736 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T15:49:30.046 DEBUG /home/spinoza/server/simple_server/index.js:125 Got request for widget installation
+
+2022-12-19T15:49:30.047 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:127:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T15:49:30.048 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T15:49:31.636 DEBUG /home/spinoza/server/simple_server/index.js:129 Ошибка авторизации при установке виджета  undefined undefined
+
+2022-12-19T15:49:31.643 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:134:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T15:49:31.643 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:06:39.026 DEBUG /home/spinoza/server/simple_server/index.js:125 Got request for widget installation
+
+2022-12-19T16:06:39.027 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:127:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:06:39.027 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:06:40.623 DEBUG /home/spinoza/server/simple_server/index.js:129 Ошибка авторизации при установке виджета  undefined undefined
+
+2022-12-19T16:06:40.632 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:134:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:06:40.632 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:28:17.019 DEBUG /home/spinoza/server/simple_server/index.js:125 Got request for widget installation
+
+2022-12-19T16:28:17.020 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:127:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:28:17.020 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:28:18.554 DEBUG /home/spinoza/server/simple_server/index.js:129 Ошибка авторизации при установке виджета  undefined undefined
+
+2022-12-19T16:28:18.563 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:134:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:28:18.564 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:38:16.044 DEBUG /home/spinoza/server/simple_server/index.js:125 Got request for widget installation
+
+2022-12-19T16:38:16.046 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:127:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:38:16.046 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-19T16:38:17.683 DEBUG /home/spinoza/server/simple_server/index.js:129 Ошибка авторизации при установке виджета  undefined undefined
+
+2022-12-19T16:38:17.691 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:134:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-19T16:38:17.691 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+

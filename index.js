@@ -17,7 +17,6 @@ data_processing.init()
 
 class Notice {
     constructor (res, data){
-        console.log("new emiter")
         this.emitter = new EventEmitter()
         this.res = res;
         this.subdomain = data.subdomain
@@ -30,7 +29,6 @@ class Notice {
         this.res.setHeader("Access-Control-Allow-Methods", "*");
         setInterval(()=>{this.res.write('data: {"ping": "pong"} \n\n')}, 30000)
         this.emitter.on("notification", ()=>{
-            console.log('внутри эмиттер он')
             this.res.write("event: notification\n")
             this.res.write("data:from server \n\n")})
     }
@@ -68,15 +66,12 @@ app.patch('/data_change', (req, res) => {
 
 // Добавлеят новое дейтвие в бд и возвращает новое действие
 app.post('/data_change', async (req, res) => {
-
     const {subdomain, changes} = req.body
-    console.log(changes)
     DB.add_action(subdomain, changes)
     .then(data => DB.get_action_by_id(subdomain, data.insertedId))
     .then(data=>{
         return res.json(data)})
-    .catch(error=>{console(error);
-        return res.sendStatus(400)})
+    .catch(error=>{return res.sendStatus(400)})
 })
 
 // Отправляет все условия из бд
@@ -88,6 +83,7 @@ app.post("/get_actions", (req, res) => {
 }) 
 
 app.post("/new_message", async (req, res)=>{
+    try{
     const {chat_id, talk_id, created_at, contact_id, updated_at} = req.body.message.add[0],
     {subdomain, id} = req.body.account,
     api = new Api(subdomain)
@@ -108,6 +104,10 @@ app.post("/new_message", async (req, res)=>{
         data_processing.message_processing(message)
 
     res.sendStatus(200)
+    } catch {
+        logger.error(`Новое сообщение не обработанно. Talk_id: ${talk_id}`)
+        res.sendStatus(400)
+    }
 })
 app.post("/change_talk", async (req, res)=>{    
     if (req.body.talk.update[0].is_read === "1"){
@@ -165,7 +165,6 @@ app.get('/login', async (req, res) => {
             // const redirectUrl = `https://${subDomain}.amocrm.ru/settings/widgets/`
             // res.redirect(redirectUrl);
         } catch(e) {
-            console.log(e);
             res.status(400).json({ message: "Login error." })
         }
     });
@@ -173,10 +172,8 @@ app.get('/login', async (req, res) => {
 
 app.get('/delete', async (req, res) => {
     try {
-        console.log(req.query)
         const accountId = Number(req.query.account_id);
         const  clientAccountData  = await DB.find_account({accountId});
-        console.log(clientAccountData)
         const subDomain = clientAccountData.subDomain;
         const AMO_TOKEN_PATH = `./authclients/${subDomain}_amo_token.json`;
         const logger = getUserLogger(subDomain);
@@ -201,8 +198,6 @@ app.get('/delete', async (req, res) => {
 
 app.get("/notification", (req, res)=>{
     const data = req.query
-    console.log(data)
-    console.log("sse")
     const emiter = new Notice(res, data)
     data_processing.add_client(emiter)
 
