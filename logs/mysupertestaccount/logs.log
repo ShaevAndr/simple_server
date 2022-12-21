@@ -124,3 +124,14 @@
 
 2022-12-20T18:18:12.257 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
 
+2022-12-21T19:18:21.558 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-21T19:18:21.561 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-21T19:18:22.144 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
+

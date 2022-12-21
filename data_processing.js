@@ -29,6 +29,7 @@ const init = async () => {
     let early_message = await DB.get_early_message()
     first_mesasage = early_message
     if (!early_message) {
+        first_mesasage = null
         return
     }
     console.log("init     ", early_message._id)
@@ -73,7 +74,7 @@ const message_have_answer = async (talk_id, subdomain) => {
     const api = new Api(subdomain)
     const talk = await api.getTalk(talk_id).then(data=>data)
     if (talk.is_read) {
-        DB.delete_message({"talk_id":talk_id})
+        delete_talk(talk_id)
     }
     return talk.is_read
 }
@@ -99,7 +100,12 @@ const message_processing = async (message) => {
 
 const realize_actions = async (message) =>{
     console.log("realize_action     ", message._id)
+    if (message_have_answer(message.talk_id, message.subdomain)) {
+        init()
+        return
+    }
     const api = new Api(message.subdomain)
+
     if (message.actions.task){
         await api.createTasks([{
             "entity_id":message.lead_id,
@@ -141,8 +147,11 @@ const realize_actions = async (message) =>{
 const delete_talk = (talk_id) =>{
     DB.delete_message({"talk_id":String(talk_id)})
     .then(()=>{
+        console.log("message was deleted")
+        if (!first_mesasage) {
+            return
+        }
         if (first_mesasage.talk_id === talk_id) {
-            console.log("message was deleted")
             clearTimeout(timer)
             first_mesasage = null
             init()
