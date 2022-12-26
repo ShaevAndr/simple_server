@@ -2,7 +2,7 @@ const DB = require("./db").DB
 const Api = require("./api")
 
 
-let first_mesasage = null
+let first_message = null
 let timer = null
 let users = {}
 
@@ -25,21 +25,31 @@ const convert_task_date = (date_string) => {
 }
 
 //  Инициализация. Получаем сообзщение с самым ранним временем действия и запускаем таймер на реализацию.
+const set_message_timer = (message) => {
+    let delay = 0
+    if (message.action_time > Date.now()+1000) {
+        delay = message.action_time - Date.now()
+    }
+    console.log("delay:    ", delay)
+    
+    timer = setTimeout(realize_actions, delay, message)
+}
+
 const init = async () => {
-    let early_message = await DB.get_early_message()
-    first_mesasage = early_message
+    let early_message = null
+    try{
+        early_message = await DB.get_early_message()
+    } catch {
+        console.log("ошибка получение самого раннего сообщения")
+    }
     if (!early_message) {
-        first_mesasage = null
+        first_message = null
         return
     }
+    first_message = early_message
+    set_message_timer(early_message)
     console.log("init     ", early_message._id)
-    if (early_message.action_time <= Date.now()+10) {
-        console.log("in if")
-        await realize_actions(early_message)
-    }
-    else {
-        timer = setTimeout(realize_actions, early_message.action_time - Date.now(), early_message)
-    }    
+    
 }
 
 // Добавляет сообщение в базу. И если время срабатывания меньше, чем в текушем сообщении (first_action)
@@ -49,22 +59,25 @@ const add_message_to_db = async (actions, message) => {
     message.actions = actions
     DB.add_message(message)
     .then(()=>{
-        if (!first_mesasage || message.action_time <= first_mesasage.action_time) {
+        console.log("add_message_to_db, before test")
+        if (!first_message || message.action_time < first_message.action_time) {
+            console.log("add_message_to_db, нет первого сообщения или раньше текушего")
+
             if (timer) {
+                console.log("add_message_to_db, есть таймер")
+
                 clearTimeout(timer)
+                first_message = message
             }
-            init()
+            set_message_timer(message)
         }
     })
     
 }
 
+
 // Проверяем нужно ли обновлять сообщение (есть ли ответ или более ранние сообщения).
-const need_update = async (talk_id, subdomain) => {
-    const have_answer = await message_have_answer(talk_id, subdomain)
-    if (have_answer) {
-        return true
-    }
+const need_update = async (talk_id) => {
     const messages = await DB.find_message({"talk_id":`${talk_id}`})
     return messages.length ? false : true
 }
@@ -73,9 +86,6 @@ const need_update = async (talk_id, subdomain) => {
 const message_have_answer = async (talk_id, subdomain) => {
     const api = new Api(subdomain)
     const talk = await api.getTalk(talk_id).then(data=>data)
-    if (talk.is_read) {
-        delete_talk(talk_id)
-    }
     return talk.is_read
 }
 
@@ -100,7 +110,10 @@ const message_processing = async (message) => {
 
 const realize_actions = async (message) =>{
     console.log("realize_action     ", message._id)
-    if (message_have_answer(message.talk_id, message.subdomain)) {
+    const have_answer = await message_have_answer(message.talk_id, message.subdomain)
+    if (have_answer) {
+        console.log("realize_action, есть ответ")
+        await delete_talk(message.talk_id, message.subdomain)
         init()
         return
     }
@@ -134,6 +147,7 @@ const realize_actions = async (message) =>{
         }).catch(err=>{console.log(err.response.data)})
     }
     if (message.actions.notice){
+        console.log("realiza_actions отправка в телеграмм")
         if (users[message.actions.manager.id]){
             
             users[message.actions.manager.id].send_to_client()
@@ -144,16 +158,16 @@ const realize_actions = async (message) =>{
 }
 
 // Удаляет сообщение в чате, если оно прочитанно
-const delete_talk = (talk_id) =>{
-    DB.delete_message({"talk_id":String(talk_id)})
+const delete_talk = (talk_id, subdomain) =>{
+    DB.delete_message({"talk_id":String(talk_id), "subdomain":subdomain})
     .then(()=>{
         console.log("message was deleted")
-        if (!first_mesasage) {
+        if (!first_message) {
             return
         }
-        if (first_mesasage.talk_id === talk_id) {
+        if (first_message.talk_id === talk_id) {
             clearTimeout(timer)
-            first_mesasage = null
+            first_message = null
             init()
         }
     })

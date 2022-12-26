@@ -1,0 +1,82 @@
+2022-12-24T15:04:11.788 DEBUG /home/spinoza/server/simple_server/index.js:127 Got request for widget installation
+
+2022-12-24T15:04:11.790 ERROR fs.js:461 Ошибка при чтении файла ./authclients/spinoza33_amo_token.json Error: ENOENT: no such file or directory, open './authclients/spinoza33_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:129:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/spinoza33_amo_token.json'
+}
+
+2022-12-24T15:04:11.790 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-24T15:04:12.156 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Authorization code was not issued to this client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-24T15:04:12.157 DEBUG /home/spinoza/server/simple_server/index.js:131 Ошибка авторизации при установке виджета  spinoza33 undefined
+
+2022-12-24T15:04:12.166 ERROR fs.js:461 Ошибка при чтении файла ./authclients/spinoza33_amo_token.json Error: ENOENT: no such file or directory, open './authclients/spinoza33_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getAccountData (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:136:39 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/spinoza33_amo_token.json'
+}
+
+2022-12-24T15:04:12.166 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-24T15:04:12.417 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Authorization code was not issued to this client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-24T15:06:02.033 DEBUG /home/spinoza/server/simple_server/index.js:127 Got request for widget installation
+
+2022-12-24T15:06:02.037 ERROR fs.js:461 Ошибка при чтении файла ./authclients/spinoza33_amo_token.json Error: ENOENT: no such file or directory, open './authclients/spinoza33_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:129:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/spinoza33_amo_token.json'
+}
+
+2022-12-24T15:06:02.038 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-24T15:06:02.531 DEBUG /home/spinoza/server/simple_server/api.js:54 Свежий токен получен
+
+2022-12-24T15:06:02.533 DEBUG /home/spinoza/server/simple_server/index.js:130 Авторизация при установке виджета для spinoza33 прошла успешно
+
+2022-12-24T15:06:02.677 DEBUG /home/spinoza/server/simple_server/index.js:138 получен id аккаунта:30729914
+
+2022-12-24T15:06:02.731 DEBUG /home/spinoza/server/simple_server/index.js:150 Данные о пользователе были добавлены в базу данных виджета
+

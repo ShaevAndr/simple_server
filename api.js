@@ -117,7 +117,6 @@ function Api(subdomain, authCode="") {
   });
 
   this.getDeal = authChecker((id, withParam = []) => {
-    console.log(access_token)
     return axios
       .get(
         `${ROOT_PATH}/api/v4/leads/${id}?${querystring.encode({

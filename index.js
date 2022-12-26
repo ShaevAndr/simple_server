@@ -83,36 +83,46 @@ app.post("/get_actions", (req, res) => {
 }) 
 
 app.post("/new_message", async (req, res)=>{
-    try{
-    const {chat_id, talk_id, created_at, contact_id, updated_at} = req.body.message.add[0],
-    {subdomain, id} = req.body.account,
-    api = new Api(subdomain)
-    let message = {chat_id,
-        talk_id,
-        created_at,
-        contact_id,
-        subdomain,
-        account_id: id}
-    const talk = await api.getTalk(talk_id)
-    const lead_id = talk._embedded["leads"][0]["id"]
-    const lead = await api.getDeal(lead_id)
-    message.lead_id = lead_id
-    message.updated_at = talk.updated_at
-    message.is_read = talk.is_read
-    message.responsible_id = lead.responsible_user_id
-    message.group_id = lead.group_id
-        data_processing.message_processing(message)
+    try{        
+        const {chat_id, talk_id, created_at, contact_id, updated_at} = req.body.message.add[0],
+        {subdomain, id} = req.body.account;
+        const searchingUser = await DB.get_account_by_subdomain(subdomain)
+        const isSubscribe = searchingUser.finishUsingDate - Date.now();
+        if (isSubscribe<0) {
+        console.log("не оплачено")
 
-    res.sendStatus(200)
+            return res.sendStatus(200)
+        }
+        const api = new Api(subdomain)
+        let message = {chat_id,
+            talk_id,
+            created_at,
+            contact_id,
+            subdomain,
+            account_id: id}
+        const talk = await api.getTalk(talk_id)
+        console.log(talk)
+        const lead_id = talk._embedded["leads"][0]["id"]
+        const lead = await api.getDeal(lead_id)
+        message.lead_id = lead_id
+        message.updated_at = talk.updated_at
+        message.is_read = talk.is_read
+        message.responsible_id = lead.responsible_user_id
+        message.group_id = lead.group_id
+            data_processing.message_processing(message)
+
+        res.sendStatus(200)
     } catch {
-        logger.error(`Новое сообщение не обработанно. Talk_id: ${talk_id}`)
+        console.log("new message error")
+        // logger.error(`Новое сообщение не обработанно. Talk_id: ${talk_id}`)
         res.sendStatus(400)
     }
 })
 app.post("/change_talk", async (req, res)=>{    
     if (req.body.talk.update[0].is_read === "1"){
         const talk_id = req.body.talk.update[0].talk_id
-        data_processing.delete_talk(talk_id)
+        const subdomain = req.body.account.subdomain
+        data_processing.delete_talk(talk_id, subdomain)
     }
     res.sendStatus(200)
 })
@@ -194,6 +204,41 @@ app.get('/delete', async (req, res) => {
     // await makeRedirect(`${config.WIDGET_CONTROLLER_URL}/del`, { ...req.query })
     res.status(200);
 });
+
+app.get('/status', async (req, res) => {
+    const subdomain = req.query.subdomain;
+    const logger = getUserLogger(subdomain);
+    const searchingUser = await DB.get_account_by_subdomain(subdomain)
+    const isSubscribe = searchingUser.finishUsingDate - Date.now();
+    if (searchingUser && subdomain) {
+        const returnedObject = {
+            paid: searchingUser.paid,
+            testPeriod: searchingUser.testPeriod,
+            startUsingDate: searchingUser.startUsingDate,
+            finishUsingDate: searchingUser.finishUsingDate
+        }
+        if (isSubscribe < 0){
+            if (searchingUser.paid || searchingUser.testPeriod){
+                DB.update_account_by_subdomain(subdomain, {
+                    "paid": false,
+                    "testPeriod": false
+                }).then(() => logger.debug("Статус оплаты subdomain: " + subdomain + " изменен на false"))
+                .catch((err) => logger.debug("Произошла ошибка обновления данных в БД ", err));
+            }
+            return res.status(200).json({...returnedObject, response: 'notPaid', paid: false, testPeriod: false})
+        }
+        if (searchingUser.testPeriod) {
+            return res.status(200).json({...returnedObject, response: 'trial'})
+        }
+        if (searchingUser.paid) {
+            return res.status(200).json({...returnedObject, response: 'paid'})
+        } 
+    } else {
+        return res.status(200).json({
+            response: 'userNotFound'
+        })
+    }
+})
 
 
 app.get("/notification", (req, res)=>{
