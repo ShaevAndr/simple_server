@@ -101,7 +101,6 @@ app.post("/new_message", async (req, res)=>{
             subdomain,
             account_id: id}
         const talk = await api.getTalk(talk_id)
-        console.log(talk)
         const lead_id = talk._embedded["leads"][0]["id"]
         const lead = await api.getDeal(lead_id)
         message.lead_id = lead_id
@@ -109,13 +108,13 @@ app.post("/new_message", async (req, res)=>{
         message.is_read = talk.is_read
         message.responsible_id = lead.responsible_user_id
         message.group_id = lead.group_id
-            data_processing.message_processing(message)
+        await data_processing.message_processing(message)
 
         res.sendStatus(200)
     } catch {
         console.log("new message error")
         // logger.error(`Новое сообщение не обработанно. Talk_id: ${talk_id}`)
-        res.sendStatus(400)
+        res.sendStatus(200)
     }
 })
 app.post("/change_talk", async (req, res)=>{    
@@ -247,6 +246,18 @@ app.get("/notification", (req, res)=>{
     data_processing.add_client(emiter)
 
 })
+
+app.get("/test_db", async (req,res)=>{
+    try{
+    await DB.add_test_message({test:"test"}).then(data=>{console.log(data, "            1")})
+    await DB.add_test_message({test:"test1"}).then(data=>{console.log(data, "            2")})
+    await DB.add_test_message({test:"test2"}).then(data=>{console.log(data, "            3")})
+    return res.status(200).json({status:"ok"})
+    } catch (error){
+        console.log(error)
+        return res.status(200).json({status:"error"})}
+    }
+)
    
 app.listen(2000, () => console.log("app is starting"));        
 

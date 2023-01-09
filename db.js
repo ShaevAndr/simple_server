@@ -3,7 +3,11 @@ const url = "mongodb://127.0.0.1:27017/";
 
 const mongoClient = new MongoClient(url, {
     useUnifiedTopology: true,
-    pkFactory: { createPk: () =>  String(Date.now()) + String(Math.floor(Math.random() * 100)) }}
+    pkFactory: { createPk: () =>  {
+        const id = String(Date.now()) + String(Math.floor(Math.random() * 100))
+        console.log(id)
+        return id
+    } }}
   )
 
 class DB {
@@ -144,16 +148,32 @@ class DB {
         }
     }
     
+
     static async add_message (data) {
         try{
             await mongoClient.connect();
-            const db = mongoClient.db("income_message_control");
+            const db = await mongoClient.db("income_message_control");
             const collection = await db.collection("messages")
             const result = await collection.insertOne(data)
             return result
         }catch(error) {
             return {error}
         }finally{
+            await mongoClient.close();
+        }
+    }
+
+    static async add_test_message (data) {
+        try{
+            await mongoClient.connect();
+            const db = await mongoClient.db("income_message_control");
+            const collection = await db.collection("test_messages")
+            const result = await collection.insertOne(data)
+            return result
+        }catch(error) {
+            return {error}
+        }finally{
+            console.log("DB.add_message, close")
             await mongoClient.close();
         }
     }

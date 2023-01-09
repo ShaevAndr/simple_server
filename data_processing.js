@@ -33,6 +33,7 @@ const set_message_timer = (message) => {
     console.log("delay:    ", delay)
     
     timer = setTimeout(realize_actions, delay, message)
+    console.log("выход из установки таймера")
 }
 
 const init = async () => {
@@ -40,16 +41,14 @@ const init = async () => {
     try{
         early_message = await DB.get_early_message()
     } catch {
-        console.log("ошибка получение самого раннего сообщения")
+        return
     }
     if (!early_message) {
         first_message = null
         return
     }
     first_message = early_message
-    set_message_timer(early_message)
-    console.log("init     ", early_message._id)
-    
+    set_message_timer(early_message)    
 }
 
 // Добавляет сообщение в базу. И если время срабатывания меньше, чем в текушем сообщении (first_action)
@@ -57,22 +56,20 @@ const init = async () => {
 const add_message_to_db = async (actions, message) => {
     message.action_time = (Number(message.updated_at) + Number(actions.delay_time) * 60) * 1000
     message.actions = actions
-    DB.add_message(message)
-    .then(()=>{
-        console.log("add_message_to_db, before test")
+    message._id = String(Date.now()) + String(Math.floor(Math.random() * 100))
+    const result = await DB.add_message(message)
+    .then((data)=>{
         if (!first_message || message.action_time < first_message.action_time) {
-            console.log("add_message_to_db, нет первого сообщения или раньше текушего")
-
             if (timer) {
-                console.log("add_message_to_db, есть таймер")
-
                 clearTimeout(timer)
                 first_message = message
             }
             set_message_timer(message)
         }
-    })
-    
+        return data
+
+    })    
+    return result 
 }
 
 
@@ -94,7 +91,6 @@ const message_processing = async (message) => {
 // Проверяем есть ли более ранние сообщения и есть ли ответ на последние сообщение
     const need_add_message = await need_update(message.talk_id, message.subdomain)
     if (!need_add_message) {
-        console.log("takoi chat uje est")
         return
     }
     const user_actions = await DB.find_actions(message.subdomain, {"manager.id":String(message.responsible_id)}) || []
@@ -102,17 +98,16 @@ const message_processing = async (message) => {
     const actions = [...user_actions, ...group_actions]
 
     if (!actions.length) {
-        console.log("net deystviy")
         return
     }
-    actions.forEach(action=>{add_message_to_db(action, message)})
+    for (action of actions) {
+        const result = await add_message_to_db(action, message)
+    }
 }
 
 const realize_actions = async (message) =>{
-    console.log("realize_action     ", message._id)
     const have_answer = await message_have_answer(message.talk_id, message.subdomain)
     if (have_answer) {
-        console.log("realize_action, есть ответ")
         await delete_talk(message.talk_id, message.subdomain)
         init()
         return
@@ -143,7 +138,6 @@ const realize_actions = async (message) =>{
             "_embedded": {
                 "tags": tags
             }
-            // "_embedded[tags][0][id]": message.actions.tags[0].id
         }).catch(err=>{console.log(err.response.data)})
     }
     if (message.actions.notice){
@@ -161,7 +155,6 @@ const realize_actions = async (message) =>{
 const delete_talk = (talk_id, subdomain) =>{
     DB.delete_message({"talk_id":String(talk_id), "subdomain":subdomain})
     .then(()=>{
-        console.log("message was deleted")
         if (!first_message) {
             return
         }

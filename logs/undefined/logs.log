@@ -183,3 +183,88 @@
 
 2022-12-19T16:38:17.691 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
 
+2022-12-30T00:35:15.607 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:96:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:129:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-30T00:35:15.609 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-30T19:27:35.586 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:96:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:129:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-30T19:27:35.589 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-30T19:27:39.576 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:96:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:130:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-30T19:27:39.578 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-30T19:29:23.546 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:96:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:130:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-30T19:29:23.548 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-30T19:32:27.641 ERROR fs.js:461 Ошибка при чтении файла ./authclients/undefined_amo_token.json Error: ENOENT: no such file or directory, open './authclients/undefined_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:96:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:130:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/undefined_amo_token.json'
+}
+
+2022-12-30T19:32:27.643 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+

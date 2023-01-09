@@ -19366,3 +19366,1001 @@
   code: 'ERR_HTTP_HEADERS_SENT'
 }
 
+2022-12-27T19:58:59.651 DEBUG /home/spinoza/server/simple_server/index.js:135 Got request for widget installation
+
+2022-12-27T19:58:59.654 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:137:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T19:58:59.655 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T19:58:59.950 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Authorization code was not issued to this client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T19:58:59.950 DEBUG /home/spinoza/server/simple_server/index.js:139 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-27T19:58:59.977 DEBUG /home/spinoza/server/simple_server/index.js:165 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-27T20:16:24.306 DEBUG /home/spinoza/server/simple_server/index.js:135 Got request for widget installation
+
+2022-12-27T20:16:24.307 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:137:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:16:24.308 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:16:24.545 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Authorization code was not issued to this client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:16:24.546 DEBUG /home/spinoza/server/simple_server/index.js:139 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-27T20:16:24.559 DEBUG /home/spinoza/server/simple_server/index.js:165 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-27T20:32:32.432 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:103:32 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:32:32.432 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:32:32.477 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Cannot decrypt the authorization code',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:33:30.481 DEBUG /home/spinoza/server/simple_server/index.js:135 Got request for widget installation
+
+2022-12-27T20:33:30.482 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:137:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:33:30.482 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:33:30.737 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Authorization code was not issued to this client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:33:30.739 DEBUG /home/spinoza/server/simple_server/index.js:139 Ошибка авторизации при установке виджета  mysupertestaccount undefined
+
+2022-12-27T20:33:30.748 DEBUG /home/spinoza/server/simple_server/index.js:165 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-27T20:35:02.248 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at /home/spinoza/server/simple_server/index.js:103:32 {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:35:02.251 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:35:02.305 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Cannot decrypt the authorization code',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:35:12.855 DEBUG /home/spinoza/server/simple_server/index.js:135 Got request for widget installation
+
+2022-12-27T20:35:12.856 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:137:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:35:12.856 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:35:13.347 DEBUG /home/spinoza/server/simple_server/api.js:54 Свежий токен получен
+
+2022-12-27T20:35:13.349 DEBUG /home/spinoza/server/simple_server/index.js:138 Авторизация при установке виджета для mysupertestaccount прошла успешно
+
+2022-12-27T20:35:13.363 DEBUG /home/spinoza/server/simple_server/index.js:165 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-27T20:36:40.991 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:36:40.993 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:36:41.580 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
+
+2022-12-27T20:41:34.386 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:34.386 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:34.482 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:34.482 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:34.495 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:34.495 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:34.610 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:34.611 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:34.708 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:34.709 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:34.805 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:34.806 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:34.818 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:34.818 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:34.935 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:34.936 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.028 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.029 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.141 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.141 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.170 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.171 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.273 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.273 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.372 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.373 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.478 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.479 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.490 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.490 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.611 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.612 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.774 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.774 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.852 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:35.853 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:35.936 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.937 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:35.940 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:35.940 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:36.190 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.190 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:36.193 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.193 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:36.283 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:36.284 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:36.304 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:36.305 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:36.537 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.538 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:36.565 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.566 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:36.642 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:36.642 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:36.658 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:36.658 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:36.862 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.862 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:36.933 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:36.933 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:37.010 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.010 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.046 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.047 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.233 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:37.233 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:37.254 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:37.254 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:37.345 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.345 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.373 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.374 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.609 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:37.609 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:37.641 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:37.641 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:37.702 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.702 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.764 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:37.764 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:37.993 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:37.993 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.014 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:38.014 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.133 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.133 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:38.147 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.148 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:38.392 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:38.392 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.431 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:38.431 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.494 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.494 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:38.528 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.528 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:38.716 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:38.716 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.721 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:38.721 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:38.831 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.831 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:38.836 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:38.836 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.073 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.073 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.119 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.119 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.199 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.199 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.210 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.211 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.433 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.433 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.476 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.476 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.527 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.528 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.575 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.575 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.766 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.767 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.844 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:39.844 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:39.869 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.869 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:39.938 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:39.938 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.066 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.067 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.155 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.155 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.160 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.160 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.259 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.260 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.392 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.392 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.454 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.454 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.491 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.491 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.548 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.548 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.715 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.716 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.774 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:40.774 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:41:40.821 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.821 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:40.880 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-27T20:41:40.880 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-27T20:41:41.063 ERROR /home/spinoza/server/simple_server/api.js:102 Не удалось обновить токен
+
+2022-12-27T20:41:41.063 ERROR /home/spinoza/server/simple_server/api.js:103 {
+  hint: 'Token is not linked to client',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 401,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:43:01.361 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at Api.getTalk (/home/spinoza/server/simple_server/api.js:25:21)
+    at message_have_answer (/home/spinoza/server/simple_server/data_processing.js:88:28)
+    at Timeout.realize_actions [as _onTimeout] (/home/spinoza/server/simple_server/data_processing.js:113:31)
+    at listOnTimeout (internal/timers.js:551:17)
+    at processTimers (internal/timers.js:492:7) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:43:01.363 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:43:01.414 ERROR /home/spinoza/server/simple_server/api.js:58 {
+  hint: 'Cannot decrypt the authorization code',
+  title: 'Некорректный запрос',
+  type: 'https://developers.amocrm.ru/v3/errors/OAuthProblemJson',
+  status: 400,
+  detail: 'В запросе отсутствует ряд параметров или параметры невалидны'
+}
+
+2022-12-27T20:43:18.981 DEBUG /home/spinoza/server/simple_server/index.js:135 Got request for widget installation
+
+2022-12-27T20:43:18.983 ERROR fs.js:461 Ошибка при чтении файла ./authclients/mysupertestaccount_amo_token.json Error: ENOENT: no such file or directory, open './authclients/mysupertestaccount_amo_token.json'
+    at Object.openSync (fs.js:461:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Api.getAccessToken (/home/spinoza/server/simple_server/api.js:68:26)
+    at /home/spinoza/server/simple_server/index.js:137:19
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/spinoza/server/simple_server/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/spinoza/server/simple_server/node_modules/express/lib/router/layer.js:95:5)
+    at /home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/spinoza/server/simple_server/node_modules/express/lib/router/index.js:346:12) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './authclients/mysupertestaccount_amo_token.json'
+}
+
+2022-12-27T20:43:18.984 DEBUG /home/spinoza/server/simple_server/api.js:75 Попытка заново получить токен
+
+2022-12-27T20:43:19.467 DEBUG /home/spinoza/server/simple_server/api.js:54 Свежий токен получен
+
+2022-12-27T20:43:19.468 DEBUG /home/spinoza/server/simple_server/index.js:138 Авторизация при установке виджета для mysupertestaccount прошла успешно
+
+2022-12-27T20:43:19.483 DEBUG /home/spinoza/server/simple_server/index.js:165 Данные о пользователе были обновлены в базе данных виджета
+
+2022-12-28T20:52:21.851 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-28T20:52:21.853 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-28T20:52:22.358 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
+
+2022-12-29T20:52:27.960 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2022-12-29T20:52:27.962 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2022-12-29T20:52:28.347 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
+
+2023-01-09T18:07:07.138 ERROR /home/spinoza/server/simple_server/api.js:28 {
+  title: 'Unauthorized',
+  type: 'https://httpstatus.es/401',
+  status: 401,
+  detail: 'Неверный логин или пароль'
+}
+
+2023-01-09T18:07:07.140 DEBUG /home/spinoza/server/simple_server/api.js:35 Нужно обновить токен
+
+2023-01-09T18:07:07.664 DEBUG /home/spinoza/server/simple_server/api.js:94 Токен успешно обновлен
+
